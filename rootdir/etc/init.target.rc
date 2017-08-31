@@ -71,6 +71,8 @@ on fs
     restorecon_recursive /persist
 
     chmod 644 /persist/audio/us_manual_cal
+    
+    install_keyring
 
 on post-fs
     start qseecomd
