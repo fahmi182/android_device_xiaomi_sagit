@@ -259,9 +259,6 @@ USE_SENSOR_MULTI_HAL := true
 TARGET_INIT_VENDOR_LIB := libinit_sagit
 TARGET_RECOVERY_DEVICE_MODULES := libinit_sagit
 
-# WebView
-PREBUILT_WEBVIEW_VERSION := chromium
-
 # Wifi
 BOARD_HAS_QCOM_WLAN := true
 BOARD_HAS_QCOM_WLAN_SDK := true
