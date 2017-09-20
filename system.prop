@@ -71,6 +71,8 @@ ro.qualcomm.cabl=0
 camera.aux.packagelist=org.cyanogenmod.snap,org.codeaurora.snapcam,com.android.camera
 #If camera.aux.packagelist exceed 91 bytes add packages to camera.aux.packagelist2
 camera.aux.packagelist2=com.android.systemui
+#force HAL1 for below packages
+camera.hal1.packagelist=com.skype.raider,com.google.android.talk,com.whatsapp
 persist.camera.mobicat=2
 persist.camera.stats.debugexif=3080192
 persist.ts.rtmakeup=false
