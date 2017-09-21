@@ -1093,3 +1093,7 @@ vendor/lib/libqvop-service.so
 # WiFi
 bin/cnss-daemon
 lib/modules/qca_cld3/qca_cld3_wlan.ko:lib/modules/wlan.ko
+
+#Others
+vendor/lib/libqtigef.so
+vendor/lib64/libqtigef.so
