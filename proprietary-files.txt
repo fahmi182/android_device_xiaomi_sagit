@@ -709,12 +709,9 @@ vendor/lib64/libssd.so
 vendor/lib/libQSEEComAPI.so
 
 # Fingerprint
-lib/hw/fingerprint.goodix.so
+lib64/hw/fingerprint.fpc.so
 lib64/hw/fingerprint.goodix.so
-lib/libgoodixfingerprintd_binder.so
 lib64/libgoodixfingerprintd_binder.so
-lib/libgf_ca.so
-lib/libgf_hal.so
 lib64/libgf_ca.so
 lib64/libgf_hal.so
 
@@ -773,6 +770,7 @@ vendor/lib64/egl/libGLESv1_CM_adreno.so
 vendor/lib64/egl/libGLESv2_adreno.so
 vendor/lib64/egl/libQTapGLES.so
 vendor/lib64/egl/libq3dtools_adreno.so
+vendor/lib64/egl/libq3dtools_esx.so
 vendor/lib64/hw/vulkan.msm8998.so
 vendor/lib64/libC2D2.so
 vendor/lib64/libCB.so
@@ -1071,7 +1069,10 @@ vendor/lib/sensor_calibrate.so
 vendor/lib/sensors.ssc.so
 
 # Thermal
+etc/thermal-engine.conf
 etc/thermal-engine-8998.conf
+etc/thermal-engine-8998-high.conf
+etc/thermal-engine-8998-map.conf
 vendor/bin/thermal-engine
 -vendor/lib64/libthermalclient.so
 vendor/lib64/libthermalioctl.so
@@ -1091,6 +1092,7 @@ vendor/lib64/libqvop-service.so
 vendor/lib/libqvop-service.so
 
 # WiFi
+bin/cnss_diag
 bin/cnss-daemon
 lib/modules/qca_cld3/qca_cld3_wlan.ko:lib/modules/wlan.ko
 
