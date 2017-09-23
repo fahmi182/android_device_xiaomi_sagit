@@ -30,7 +30,7 @@ PRODUCT_MODEL := MI 6
 PRODUCT_MANUFACTURER := Xiaomi
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    BUILD_FINGERPRINT="Xiaomi/sagit/sagit:7.1.1/NMF26X/7.9.7:user/release-keys"
+    BUILD_FINGERPRINT="Xiaomi/sagit/sagit:7.1.1/NMF26X/7.9.22:user/release-keys"
 
 # Boot animation
 TARGET_BOOT_ANIMATION_RES := 1080
