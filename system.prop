@@ -107,13 +107,6 @@ persist.data.mode=concurrent
 # DRM
 drm.service.enabled=true
 
-# Fingerprint vendor set
-ro.hardware.fp.fpc=true
-ro.hardware.fp.goodix=true
-
-# FRP
-ro.frp.pst=/dev/block/bootdevice/by-name/config
-
 # Graphics
 ro.sf.lcd_density=480
 debug.sf.hw=1
