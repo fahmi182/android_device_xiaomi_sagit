@@ -176,8 +176,8 @@ TARGET_TAP_TO_WAKE_NODE :=  "/sys/devices/soc/c179000.i2c/i2c-5/5-0020/input/inp
 # CNE and DPM
 BOARD_USES_QCNE := true
 
-# Dexpreopt
-WITH_DEXPREOPT := true
+# Dex
+WITH_DEXPREOPT_BOOT_IMG_ONLY ?= false
 
 # Display
 MAX_VIRTUAL_DISPLAY_DIMENSION := 4096
