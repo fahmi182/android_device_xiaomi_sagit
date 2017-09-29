@@ -32,7 +32,12 @@
 
          Must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLevels">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
         <item>5</item>
+        <item>6</item>
         <item>8</item>
         <item>13</item>
         <item>17</item>
@@ -40,8 +45,6 @@
         <item>26</item>
         <item>30</item>
         <item>34</item>
-        <item>39</item>
-        <item>60</item>
         <item>140</item>
         <item>310</item>
         <item>400</item>
@@ -60,22 +63,25 @@
          than the size of the config_autoBrightnessLevels array.
          This must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLcdBacklightValues">
+        <item>2</item>
+        <item>2</item>
+        <item>2</item>
         <item>3</item>
-        <item>15</item>
-        <item>15</item>
-        <item>15</item>
-        <item>15</item>
-        <item>31</item>
+        <item>3</item>
+        <item>5</item>
+        <item>5</item>
+        <item>12</item>
+        <item>12</item>
+        <item>20</item>
+        <item>20</item>
+        <item>39</item>
         <item>39</item>
         <item>43</item>
         <item>43</item>
-        <item>44</item>
-        <item>45</item>
-        <item>48</item>
         <item>55</item>
-        <item>60</item>
+        <item>55</item>
         <item>63</item>
-        <item>67</item>
+        <item>63</item>
         <item>84</item>
         <item>93</item>
         <item>105</item>
@@ -139,15 +145,23 @@
     <string name="config_mms_user_agent_profile_url" translatable="false"
             >http://www.google.com/oha/rdf/ua-profile-kila.xml</string>
 
+    <!-- Does the notification LED support multiple colors?
+         Used to decide if the user can change the colors -->
+    <bool name="config_multiColorNotificationLed">false</bool>
+
+    <!-- Does the battery LED support multiple colors?
+         Used to decide if the user can change the colors -->
+    <bool name="config_multiColorBatteryLed">false</bool>
+
     <!-- Is the notification LED intrusive? Used to decide if there should be a disable option -->
      <bool name="config_intrusiveNotificationLed">true</bool>
      <!-- Default LED off time for notification LED in milliseconds. -->
-     <integer name="config_defaultNotificationLedOff">4000</integer>
+     <integer name="config_defaultNotificationLedOff">5000</integer>
   
      <!-- Is the battery LED intrusive? Used to decide if there should be a disable option -->
      <bool name="config_intrusiveBatteryLed">true</bool>
      <!-- Default value for LED on time when the battery is low on charge in miliseconds -->
-     <integer name="config_notificationsBatteryLedOn">500</integer>
+     <integer name="config_notificationsBatteryLedOn">3000</integer>
 
     <!-- List of regexpressions describing the interface (if any) that represent tetherable
          USB interfaces.  If the device doesn't want to support tething over USB this should
@@ -395,14 +409,6 @@
          provisioning, availability etc -->
     <bool name="config_carrier_volte_available">true</bool>
 
-    <!-- Flag specifying whether VT is available on device -->
-    <bool name="config_device_vt_available">true</bool>
-
-    <!-- Flag specifying whether VT should be available for carrier: independent of
-         carrier provisioning. If false: hard disabled. If true: then depends on carrier
-         provisioning, availability etc -->
-    <bool name="config_carrier_vt_available">true</bool>
-
     <!-- Flag specifying whether VoLTE TTY is supported -->
     <bool name="config_carrier_volte_tty_supported">false</bool>
 
@@ -479,7 +485,101 @@
     <string name="config_networkLocationProviderPackageName" translatable="false">com.qualcomm.location</string>
     <string name="config_fusedLocationProviderPackageName" translatable="false">com.qualcomm.location</string>
 
+    <!-- Default list of files pinned by the Pinner Service -->
+    <string-array translatable="false" name="config_defaultPinnerServiceFiles">
+        <item>"/system/framework/arm64/boot-framework.oat"</item>
+        <item>"/system/framework/oat/arm64/services.odex"</item>
+        <item>"/system/framework/arm64/boot.oat"</item>
+        <item>"/system/framework/arm64/boot-core-libart.oat"</item>
+        <item>"/system/framework/arm64/boot-QPerformance.oat"</item>
+        <item>"/data/dalvik-cache/arm64/system@framework@services.jar@classes.dex"</item>
+    </string-array>
+
     <!-- True if camera app should be pinned via Pinner Service -->
     <bool name="config_pinnerCameraApp">true</bool>
+
+    <!-- The RadioAccessFamilies supported by the device.
+         Empty is viewed as "all".  Only used on devices which
+         don't support RIL_REQUEST_GET_RADIO_CAPABILITY
+         format is UMTS|LTE|... -->
+    <string translatable="false" name="config_radio_access_family">GSM | WCDMA | LTE | CDMA</string>
+
+    <!-- Whether notify fingerprint client of successful cancelled authentication -->
+    <bool name="config_notifyClientOnFingerprintCancelSuccess">true</bool>
+
+    <!-- Whether cpu boost is enabled for AppLaunch -->
+    <bool name="config_enableCpuBoostForAppLaunch">true</bool>
+    <integer name="launchboost_timeout_param">2000</integer>
+    <integer-array name="launchboost_param_value">
+        <item>0x40C00000</item>
+        <item>0x00000001</item>
+        <item>0x40800000</item>
+        <item>0x00000708</item>
+        <item>0x40400000</item>
+        <item>0x00000001</item>
+        <item>0x41000000</item>
+        <item>0x00000004</item>
+        <item>0x42804000</item>
+        <item>0x00000001</item>
+    </integer-array>
+
+    <!-- Whether disablepacking is enabled or not -->
+    <bool name="config_disablePacking">true</bool>
+    <integer name="disablepacking_timeout_param">5000</integer>
+    <integer-array name="launchboost_packing_param_value">
+        <item>0x40C04000</item>
+        <item>0x00000001</item>
+        <item>0x40C0C000</item>
+        <item>0x00000001</item>
+        <item>0x40C14000</item>
+        <item>0x00000001</item>
+        <item>0x40C10000</item>
+        <item>0x00000001</item>
+    </integer-array>
+
+    <!-- Whether cpu boost is enabled for animation. -->
+    <bool name="config_enablePerfBoostForAnimation">true</bool>
+    <integer name="animationboost_timeout_param">600</integer>
+    <integer-array name="animationboost_param_value">
+        <item>0x40C00000</item>
+        <item>0x00000001</item>
+        <item>0x40800000</item>
+        <item>0x0000044C</item>
+        <item>0x42804000</item>
+        <item>0x00000001</item>
+    </integer-array>
+
+    <!-- Whether cpu boost is enabled for overscroller fling. -->
+    <bool name="config_enableCpuBoostForOverScrollerFling">true</bool>
+    <integer name="flingboost_timeout_param">0</integer>
+    <integer-array name="flingboost_param_value">
+        <item>0x40C00000</item>
+        <item>0x00000001</item>
+        <item>0x40800000</item>
+        <item>0x00000708</item>
+        <item>0x40C04000</item>
+        <item>0x00000001</item>
+    </integer-array>
+
+    <!-- Whether cpu boost is enabled for horizontal scroll. -->
+    <bool name="config_enableCpuBoostForScroller">true</bool>
+    <integer name="scrollboost_timeout_param">0</integer>
+    <integer-array name="scrollboost_param_value">
+        <item>0x40C00000</item>
+        <item>0x00000001</item>
+        <item>0x40800000</item>
+        <item>0x00000708</item>
+        <item>0x40C04000</item>
+        <item>0x00000001</item>
+</integer-array>
+
+   <!-- Whether cpu boost is enabled for PanelView fling -->
+   <bool name="config_enableCpuBoostForPanelViewFling">false</bool>
+   <integer-array name="panelview_flingboost_param_value">
+       <item>0x40C00000</item> <!-- SCHEDBOOST resource opcode-->
+       <item>0x1</item>        <!-- SCHEDBOOST resource value-->
+       <item>0x40800000</item> <!-- CPUBOOST_MIN_FREQ resource opcode-->
+       <item>0x514</item>      <!-- CPUBOOST MIN_FREQ resource value-->
+</integer-array>
 
 </resources>

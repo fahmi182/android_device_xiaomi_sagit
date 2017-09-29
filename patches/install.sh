@@ -2,7 +2,8 @@ echo $1
 rootdirectory="$PWD"
 # ---------------------------------
 
-dirs="external/ebtables frameworks/base/core/java frameworks/base/data/keyboards hardware/qcom/camera/msm8998 hardware/qcom/display-caf/msm8998 packages/apps/Settings"
+dirs="external/ebtables external/DUtils frameworks/base/data/keyboards
+frameworks/base/services/core/java hardware/qcom/camera/msm8998 hardware/qcom/display-caf/msm8998 packages/apps/Extensions packages/apps/Settings"
 
 for dir in $dirs ; do
 	cd $rootdirectory

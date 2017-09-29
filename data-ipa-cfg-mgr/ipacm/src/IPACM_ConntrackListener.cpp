@@ -96,7 +96,10 @@ void IPACM_ConntrackListener::event_callback(ipa_cm_event_id evt,
 	 case IPA_HANDLE_WAN_UP:
 			IPACMDBG_H("Received IPA_HANDLE_WAN_UP event\n");
 			CreateConnTrackThreads();
-			TriggerWANUp(data);
+			if(!isWanUp())
+			{
+				TriggerWANUp(data);
+			}
 			break;
 
 	 case IPA_HANDLE_WAN_DOWN:
@@ -210,8 +213,8 @@ int IPACM_ConntrackListener::CheckNatIface(
 					sizeof(pNatIfaces[i].iface_name)) == 0)
 		{
 			IPACMDBG_H("Nat iface (%s), entry (%d), dont cache",
-						pNatIfaces[i].iface_name, i);
-			iptodot("with ipv4 address: ", nat_iface_ipv4_addr[i]);
+						pNatIfaces[i].iface_name, j);
+			iptodot("with ipv4 address: ", nat_iface_ipv4_addr[j]);
 			*NatIface = true;
 			return IPACM_SUCCESS;
 		}
@@ -353,14 +356,6 @@ void IPACM_ConntrackListener::TriggerWANUp(void *in_param)
 		 return;
 	 }
 
-	 if(isWanUp())
-	 {
-		 if (wan_ipaddr != wanup_data->ipv4_addr)
-			 TriggerWANDown(wan_ipaddr);
-		 else
-			 return;
-	 }
-
 	 WanUp = true;
 	 isStaMode = wanup_data->is_sta;
 	 IPACMDBG("isStaMode: %d\n", isStaMode);
@@ -460,20 +455,16 @@ error:
 
 void IPACM_ConntrackListener::TriggerWANDown(uint32_t wan_addr)
 {
-	int ret = 0;
-	IPACMDBG_H("Deleting ipv4 nat table with");
-	IPACMDBG_H(" public ip address(0x%x): %d.%d.%d.%d\n", wan_addr,
-			((wan_addr>>24) & 0xFF), ((wan_addr>>16) & 0xFF),
-			((wan_addr>>8) & 0xFF), (wan_addr & 0xFF));
+	 IPACMDBG_H("Deleting ipv4 nat table with");
+	 IPACMDBG_H(" public ip address(0x%x): %d.%d.%d.%d\n", wan_addr,
+		    ((wan_addr>>24) & 0xFF), ((wan_addr>>16) & 0xFF), 
+		    ((wan_addr>>8) & 0xFF), (wan_addr & 0xFF));
+	 
+	 WanUp = false;
 
 	 if(nat_inst != NULL)
 	 {
-		 ret = nat_inst->DeleteTable(wan_addr);
-		 if (ret)
-			 return;
-
-		 WanUp = false;
-		 wan_ipaddr = 0;
+		 nat_inst->DeleteTable(wan_addr);
 	 }
 }
 

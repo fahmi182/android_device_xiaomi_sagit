@@ -66,20 +66,24 @@ vendor/lib64/libacdbloader.so
 vendor/lib64/libacdbrtac.so
 vendor/lib64/libadiertac.so
 vendor/lib64/libaudcal.so
+vendor/lib64/libhwdaphal.so
 vendor/lib/soundfx/libqcbassboost.so
 vendor/lib/soundfx/libqcreverb.so
 vendor/lib/soundfx/libqcvirt.so
-vendor/lib/libadm.so
 vendor/lib/libacdb-fts.so
 vendor/lib/libacdbloader.so
 vendor/lib/libacdbrtac.so
 vendor/lib/libadiertac.so
+vendor/lib/libadm.so
 vendor/lib/libaudcal.so
+vendor/lib/libhwdaphal.so
 
 # Bluetooth
 bin/btnvtool
 bin/hci_qcomm_init
 bin/wcnss_filter
+lib/libbthost_if.so
+lib64/libbthost_if.so
 vendor/lib64/libbtnv.so
 vendor/lib/libbtnv.so
 
@@ -707,12 +711,9 @@ vendor/lib64/libssd.so
 vendor/lib/libQSEEComAPI.so
 
 # Fingerprint
-lib/hw/fingerprint.goodix.so
+lib64/hw/fingerprint.fpc.so
 lib64/hw/fingerprint.goodix.so
-lib/libgoodixfingerprintd_binder.so
 lib64/libgoodixfingerprintd_binder.so
-lib/libgf_ca.so
-lib/libgf_hal.so
 lib64/libgf_ca.so
 lib64/libgf_hal.so
 
@@ -722,9 +723,11 @@ vendor/lib/hw/gatekeeper.msm8998.so
 
 # GPS
 bin/loc_launcher
+bin/lowi-server
 bin/xtwifi-client
 bin/xtwifi-inet-agent
 etc/permissions/com.qti.location.sdk.xml
+etc/permissions/com.qualcomm.location.vzw_library.xml
 etc/permissions/com.qualcomm.location.xml
 etc/permissions/izat.xt.srv.xml
 etc/cacert_location.pem
@@ -769,6 +772,7 @@ vendor/lib64/egl/libGLESv1_CM_adreno.so
 vendor/lib64/egl/libGLESv2_adreno.so
 vendor/lib64/egl/libQTapGLES.so
 vendor/lib64/egl/libq3dtools_adreno.so
+vendor/lib64/egl/libq3dtools_esx.so
 vendor/lib64/hw/vulkan.msm8998.so
 vendor/lib64/libC2D2.so
 vendor/lib64/libCB.so
@@ -873,8 +877,6 @@ vendor/lib64/libvoice-svc.so
 
 # IPA
 bin/ipacm-diag
-
-# IPA FWs
 etc/firmware/ipa_fws.b00
 etc/firmware/ipa_fws.b01
 etc/firmware/ipa_fws.b02
@@ -898,18 +900,21 @@ lib64/libvpplibrary.so
 lib/libOmxVpp.so
 lib/libvpplibrary.so
 vendor/lib64/libI420colorconvert.so
+vendor/lib64/libmiracast.so
+vendor/lib64/libmm-color-convertor.so
+vendor/lib64/libmmosal.so
 vendor/lib64/libOmxAacDec.so
 vendor/lib64/libOmxEvrcDec.so
 vendor/lib64/libOmxQcelp13Dec.so
-vendor/lib64/libmm-color-convertor.so
-vendor/lib64/libmmosal.so
 vendor/lib64/libvpphvx.so
 vendor/lib/libI420colorconvert.so
-vendor/lib/libOmxAacDec.so
-vendor/lib/libOmxEvrcDec.so
-vendor/lib/libOmxQcelp13Dec.so
+vendor/lib/libmiracast.so
 vendor/lib/libmm-color-convertor.so
 vendor/lib/libmmosal.so
+vendor/lib/libOmxAacDec.so
+vendor/lib/libOmxEvrcDec.so
+vendor/lib/libOmxVideoDSMode.so
+vendor/lib/libOmxQcelp13Dec.so
 vendor/lib/libvpphvx.so
 vendor/lib/libvqzip.so
 
@@ -937,19 +942,20 @@ vendor/etc/perf-profile3.conf
 vendor/etc/perf-profile4.conf
 vendor/etc/perf-profile5.conf
 vendor/etc/perf-profile6.conf
+vendor/lib64/libqti-at.so
 vendor/lib64/libqti-iop-client.so
 vendor/lib64/libqti-iop.so
 vendor/lib64/libqti-perfd-client.so
+vendor/lib64/libqti_performance.so
 vendor/lib64/libqti-util.so
 vendor/lib64/libqti-utils.so
+vendor/lib/libqti-at.so
 vendor/lib/libqti-iop-client.so
 vendor/lib/libqti-iop.so
 vendor/lib/libqti-perfd-client.so
+vendor/lib/libqti_performance.so
 vendor/lib/libqti-util.so
 vendor/lib/libqti-utils.so
-
-# QCOM post_boot
-etc/init.qcom.post_boot.sh
 
 # Peripheral manager
 bin/pm-proxy
@@ -1069,7 +1075,10 @@ vendor/lib/sensor_calibrate.so
 vendor/lib/sensors.ssc.so
 
 # Thermal
+etc/thermal-engine.conf
 etc/thermal-engine-8998.conf
+etc/thermal-engine-8998-high.conf
+etc/thermal-engine-8998-map.conf
 vendor/bin/thermal-engine
 -vendor/lib64/libthermalclient.so
 vendor/lib64/libthermalioctl.so
@@ -1089,5 +1098,10 @@ vendor/lib64/libqvop-service.so
 vendor/lib/libqvop-service.so
 
 # WiFi
+bin/cnss_diag
 bin/cnss-daemon
 lib/modules/qca_cld3/qca_cld3_wlan.ko:lib/modules/wlan.ko
+
+#Others
+vendor/lib/libqtigef.so
+vendor/lib64/libqtigef.so

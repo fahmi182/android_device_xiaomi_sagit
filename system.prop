@@ -59,6 +59,7 @@ qcom.bluetooth.soc=cherokee
 ro.bluetooth.a4wp=false
 ro.bluetooth.emb_wp_mode=false
 ro.bluetooth.wipower=false
+bluetooth.hfp.client=1
 
 # Bootloader status
 ro.boot.verifiedbootstate=green
@@ -70,10 +71,12 @@ ro.qualcomm.cabl=0
 camera.aux.packagelist=org.cyanogenmod.snap,org.codeaurora.snapcam,com.android.camera
 #If camera.aux.packagelist exceed 91 bytes add packages to camera.aux.packagelist2
 camera.aux.packagelist2=com.android.systemui
+#force HAL1 for below packages
+camera.hal1.packagelist=com.skype.raider,com.google.android.talk,com.whatsapp
 persist.camera.mobicat=2
 persist.camera.stats.debugexif=3080192
 persist.ts.rtmakeup=false
-#persist.camera.HAL3.enabled=1
+persist.camera.HAL3.enabled=1
 
 #low power mode for camera
 camera.lowpower.record.enable=1
@@ -104,13 +107,6 @@ persist.data.mode=concurrent
 # DRM
 drm.service.enabled=true
 
-# Fingerprint vendor set
-ro.hardware.fp.fpc=true
-ro.hardware.fp.goodix=true
-
-# FRP
-ro.frp.pst=/dev/block/bootdevice/by-name/config
-
 # Graphics
 ro.sf.lcd_density=480
 debug.sf.hw=1
@@ -122,6 +118,9 @@ ro.opengles.version=196610
 persist.debug.wfd.enable=1
 persist.sys.wfd.virtual=0
 persist.hwc.enable_vds=1
+
+# Google Assistent
+ro.opa.eligible_device=true
 
 # Media
 media.stagefright.enable-player=true
@@ -168,7 +167,7 @@ persist.rild.nitz_short_ons_3=
 
 ril.subscription.types=NV,RUIM
 DEVICE_PROVISIONED=1
-ro.telephony.default_network=22,22
+ro.telephony.default_network=10,10
 telephony.lteOnCdmaDevice=1
 keyguard.no_require_sim=true
 ro.com.android.dataroaming=true
